@@ -100,7 +100,9 @@ function Validator(options) {
                     return (values[input.name] = input.value) && values;
 
                 }, {});
-                addAcount(formValues);
+                if (options.form == '#register') {
+                    addAcount(formValues);
+                }
                 formElement.submit();
             }
         }
@@ -203,7 +205,7 @@ function checkSignIn() {
                     localStorage.setItem('issignin', 1);
                     localStorage.setItem('email', item.email);
                     localStorage.setItem('password', item.password);
-                    document.getElementById('signIn').action = "/Index.html";
+                    document.getElementById('signIn').action = "/NhomA03/Index.html";
                     this.submit();
                 }
 
