@@ -228,10 +228,10 @@ function afterSignIn() {
         <li class="nav-item dropdown">
                 <a class="fas fa-user nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"></a>
                 <ul class="dropdown-menu">
-                    <a href="/SanPham/html/cart.html" class="dropdown-item">
+                    <a href="/NhomA03/SanPham/html/cart.html" class="dropdown-item">
                         <li>Giỏ Hàng</li>
                     </a>
-                    <a href="/SanPham/html/user_order.html" class="dropdown-item">
+                    <a href="/NhomA03/SanPham/html/user_order.html" class="dropdown-item">
                     <li>Đơn Hàng</li>
                 </a>
                     <a onclick="logout()" class="dropdown-item ">
