@@ -1,8 +1,6 @@
 const searchWrapper = document.querySelector("form");
 const inputBox = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".myUL");
-const icon = searchWrapper.querySelector(".icon");
-let webLink;
 let suggestions = [{
         id: "ban1",
         title: "Bàn Gỗ Đẹp",
@@ -263,10 +261,9 @@ let suggestions = [{
         inCart: 0
     },
 ];
-let linkTag = searchWrapper.querySelector("a");
 inputBox.onkeyup = (e) => {
     let userData = e.target.value; //dữ liệu nhập
-    console.log(userData);
+    console.log(linkTag);
     let emptyArray = [];
     if (userData) {
         emptyArray = suggestions.filter((data) => {
