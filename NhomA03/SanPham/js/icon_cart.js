@@ -272,6 +272,7 @@ for (let j = 0; j < products.length; j++) {
         })
     }
 }
+localStorage.removeItem('newqty');
 
 function checkSignIn1() {
     let checkSignIn = localStorage.getItem('issignin');
@@ -298,16 +299,24 @@ function cartNumbers(product) {
     productNumbers = parseInt(productNumbers);
     if (productNumbers) {
         if (carts.length === 1) {
-            localStorage.setItem('cartNumbers', productNumbers + qty);
-            document.querySelector('.cart span').textContent = productNumbers + qty;
+            if (qty) {
+                localStorage.setItem('cartNumbers', productNumbers + qty);
+                console.log("ASDSAD");
+                document.querySelector('.cart span').textContent = productNumbers + qty;
+
+            }
         } else {
             localStorage.setItem('cartNumbers', productNumbers + 1);
+            console.log("ASDSAD123");
+
             document.querySelector('.cart span').textContent = productNumbers + 1;
         }
     } else {
         if (carts.length === 1) {
-            localStorage.setItem('cartNumbers', qty);
-            document.querySelector('.cart span').textContent = qty;
+            if (qty) {
+                localStorage.setItem('cartNumbers', qty);
+                document.querySelector('.cart span').textContent = qty;
+            }
         } else {
             localStorage.setItem('cartNumbers', 1);
             document.querySelector('.cart span').textContent = 1;
@@ -329,17 +338,23 @@ function setItems(product) {
             }
         }
         if (carts.length === 1) {
-            cartItems[product.title].inCart += qty;
+            if (qty) {
+                cartItems[product.title].inCart += qty;
+            }
         } else { cartItems[product.title].inCart += 1; }
     } else {
         if (carts.length === 1) {
-            product.inCart = qty;
-        } else { product.inCart = 1; }
+            if (qty)
+                product.inCart = qty;
+        } else
+            product.inCart = 1;
         cartItems = {
             [product.title]: product
         }
+
     }
-    localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+    if (cartItems)
+        localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 }
 
 function totalCost(product) {
@@ -348,12 +363,18 @@ function totalCost(product) {
     qty = parseInt(qty);
     if (cartCost != null) {
         cartCost = parseInt(cartCost);
-        if (carts.length === 1) { localStorage.setItem("totalCost", cartCost + qty * product.price); } else {
+        if (carts.length === 1) {
+            if (qty) {
+                localStorage.setItem("totalCost", cartCost + qty * product.price);
+            }
+        } else {
             localStorage.setItem("totalCost", cartCost + product.price);
         }
     } else {
         if (carts.length === 1) {
-            localStorage.setItem("totalCost", qty * product.price)
+            if (qty) {
+                localStorage.setItem("totalCost", qty * product.price)
+            }
         } else { localStorage.setItem("totalCost", product.price); }
     }
 }
@@ -403,13 +424,6 @@ function remove_Item(product) {
             }
         }
         cartItems[product.title].inCart = cartItems[product.title].inCart;
-    } else {
-        if (carts.length === 1) {
-            product.inCart = qty;
-        } else { product.inCart = product.inCart; }
-        cartItems = {
-            [product.title]: product
-        }
     }
     localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 }

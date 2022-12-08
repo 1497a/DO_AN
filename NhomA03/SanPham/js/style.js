@@ -278,7 +278,7 @@ inputBox.onkeyup = (e) => {
         if (emptyArray.length != 0) {
             emptyArray = emptyArray.map((data) => {
                 // thêm đường link và hiện thị
-                return data = `<li><a href ="${data.link}">${data.title}</a></li>`;
+                return data = `<a href ="${data.link}"><li>${data.title}</li></a>`;
             });
             console.log(emptyArray);
             searchWrapper.classList.add("active"); //show các gợi ý
