@@ -274,7 +274,6 @@ inputBox.onkeyup = (e) => {
 
             return data.title.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
         })
-        console.log(emptyArray);
         if (emptyArray.length != 0) {
             emptyArray = emptyArray.map((data) => {
                 // thêm đường link và hiện thị
@@ -295,11 +294,6 @@ inputBox.onkeyup = (e) => {
 
 function showSuggestions(list) {
     let listData;
-    if (!list.length) {
-        userValue = inputBox.value;
-        listData = `<li>${userValue}</li>`;
-    } else {
-        listData = list.join('');
-    }
+    listData = list.join('');
     suggBox.innerHTML = listData;
 }
