@@ -423,8 +423,12 @@ function remove_Item(product) {
                 [product.title]: product
             }
         }
-        cartItems[product.title].inCart = cartItems[product.title].inCart;
+
     }
+    cartItems = {
+        [product.title]: product
+    }
+
     localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 }
 
@@ -451,8 +455,10 @@ function deleteItem(button) {
         localStorage.removeItem('productsInCart');
         localStorage.removeItem('totalCost');
         Object.values(cartItems).map(item => {
+
             if (item.id === button.id) {
                 cartItem = cartItem - item.inCart;
+                console.log(item);
             } else {
                 remove_Item(item);
                 retotalCost(item);

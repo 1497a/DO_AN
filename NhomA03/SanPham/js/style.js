@@ -263,7 +263,6 @@ let suggestions = [{
 ];
 inputBox.onkeyup = (e) => {
     let userData = e.target.value; //dữ liệu nhập
-    console.log(linkTag);
     let emptyArray = [];
     if (userData) {
         emptyArray = suggestions.filter((data) => {
