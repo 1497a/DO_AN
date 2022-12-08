@@ -283,11 +283,7 @@ inputBox.onkeyup = (e) => {
             console.log(emptyArray);
             searchWrapper.classList.add("active"); //show các gợi ý
             showSuggestions(emptyArray);
-            let allList = suggBox.querySelectorAll("li");
-            for (let i = 0; i < allList.length; i++) {
-                //thêm onclick
-                allList[i].setAttribute("onclick", "select(this)");
-            }
+
         } else {
             searchWrapper.classList.remove("active"); //khong hiện gợi ý  khi không trùng khớp 
         }
@@ -296,21 +292,6 @@ inputBox.onkeyup = (e) => {
     }
 }
 
-function select(element) {
-    let selectData = element.textContent;
-    inputBox.value = selectData;
-    icon.onclick = () => {
-        for (let i = 0; i < suggestions.length; i++) {
-            if (selectData == suggestions[i].title) {
-                webLink = `${suggestions[i].link}`;
-                linkTag.setAttribute("href", webLink);
-                linkTag.click();
-            }
-        }
-
-    }
-    searchWrapper.classList.remove("active");
-}
 
 function showSuggestions(list) {
     let listData;
