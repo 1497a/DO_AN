@@ -301,14 +301,11 @@ function cartNumbers(product) {
         if (carts.length === 1) {
             if (qty) {
                 localStorage.setItem('cartNumbers', productNumbers + qty);
-                console.log("ASDSAD");
                 document.querySelector('.cart span').textContent = productNumbers + qty;
 
             }
         } else {
             localStorage.setItem('cartNumbers', productNumbers + 1);
-            console.log("ASDSAD123");
-
             document.querySelector('.cart span').textContent = productNumbers + 1;
         }
     } else {
@@ -424,10 +421,10 @@ function remove_Item(product) {
             }
         }
 
-    }
-    cartItems = {
-        [product.title]: product
-    }
+    } else
+        cartItems = {
+            [product.title]: product
+        }
 
     localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 }
@@ -455,11 +452,10 @@ function deleteItem(button) {
         localStorage.removeItem('productsInCart');
         localStorage.removeItem('totalCost');
         Object.values(cartItems).map(item => {
-
             if (item.id === button.id) {
                 cartItem = cartItem - item.inCart;
-                console.log(item);
             } else {
+                console.log(item);
                 remove_Item(item);
                 retotalCost(item);
             }

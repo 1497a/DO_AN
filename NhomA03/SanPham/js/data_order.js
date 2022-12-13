@@ -10,7 +10,7 @@ function showOrder() {
     if (newOrderProduct && order && newOrderId) {
         order.innerHTML = '';
         Object.values(newOrderProduct).map(item => {
-            text.push(`${item.title} (x${item.inCart})\n`);
+            text.push(`${item.title} (x${item.inCart})`);
 
         })
         order.innerHTML += `<td >${newOrderId}(new)</td>

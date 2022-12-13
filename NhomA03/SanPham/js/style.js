@@ -275,7 +275,6 @@ inputBox.onkeyup = (e) => {
                 // thêm đường link và hiện thị
                 return data = `<a href ="${data.link}"><li>${data.title}</li></a>`;
             });
-            console.log(emptyArray);
             searchWrapper.classList.add("active"); //show các gợi ý
             showSuggestions(emptyArray);
 

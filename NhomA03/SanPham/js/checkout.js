@@ -53,7 +53,6 @@ function resetCart() {
 }
 
 function createIdOrder() {
-
     var a = ((Math.random().toString(36).slice(6)).toUpperCase());
 
     localStorage.setItem('IdOrder', a);
